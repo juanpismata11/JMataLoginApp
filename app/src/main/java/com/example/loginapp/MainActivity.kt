@@ -14,7 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.loginapp.Screens.LoginScreen
 import com.example.loginapp.Screens.LoginScreenRoute
+import com.example.loginapp.Screens.SignupScreen
 import com.example.loginapp.Screens.SignupScreenRoute
 import com.example.loginapp.ui.theme.LoginAppTheme
 
