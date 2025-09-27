@@ -58,7 +58,10 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable<SignupScreenRoute>{
-                                SignupScreen()
+                                SignupScreen(
+                                    navController = navController,
+                                    innerPadding = innerPadding
+                                )
                             }
                         }
                     }

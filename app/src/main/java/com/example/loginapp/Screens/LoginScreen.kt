@@ -42,6 +42,7 @@ import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
 import com.example.loginapp.Greeting
 import com.example.loginapp.ui.theme.LoginAppTheme
+import com.example.loginapp.ui.theme.offwhite
 
 @Composable
 fun LoginScreen(
@@ -49,6 +50,7 @@ fun LoginScreen(
     innerPadding: PaddingValues
 ){
     var textSearchBar by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -73,8 +75,8 @@ fun LoginScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .clip(RoundedCornerShape(topStart = 70.dp))
+                .background(offwhite)
 
-                .background(Color.White)
         ){
             Box(
                 modifier = Modifier
@@ -174,9 +176,9 @@ fun LoginScreen(
                     )
 
                     TextField(
-                        value = textSearchBar,
-                        onValueChange = { textSearchBar = it },
-                        label = {Text("Password")},
+                        value = password,
+                        onValueChange = { password = it },
+                        label = {Text(".....")},
                         visualTransformation = PasswordVisualTransformation(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                         modifier = Modifier
@@ -230,7 +232,9 @@ fun LoginScreen(
                     Text("Don't have any accounts?")
                     Text(
                         text = "Sign up",
-                        modifier = Modifier.clickable {
+                        modifier = Modifier
+                            .padding(start = 5.dp)
+                            .clickable {
                             navController.navigate(SignupScreenRoute)
                         }
                     )
