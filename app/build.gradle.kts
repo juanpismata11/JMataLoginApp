@@ -58,7 +58,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    val nav_version = "2.8.9"
+    val nav_version = "2.9.5"
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")

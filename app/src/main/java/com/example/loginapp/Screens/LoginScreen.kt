@@ -1,6 +1,7 @@
 package com.example.loginapp.Screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -28,6 +32,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,7 +50,10 @@ fun LoginScreen(
 ){
     var textSearchBar by remember { mutableStateOf("") }
 
-    Column(){
+    Column(
+        modifier = Modifier
+            .background(Color.Black)
+    ){
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -63,6 +72,9 @@ fun LoginScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .clip(RoundedCornerShape(topStart = 70.dp))
+
+                .background(Color.White)
         ){
             Box(
                 modifier = Modifier
@@ -83,10 +95,20 @@ fun LoginScreen(
             ){
                 Column(
                     modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp))
+                        .clip(RoundedCornerShape(
+                            topStart = 16.dp,
+                            topEnd = 0.dp,
+                            bottomEnd = 16.dp,
+                            bottomStart = 16.dp
+                        ))
                         .background(
                             color = Color.White,
-                            shape = RoundedCornerShape(16.dp)
+                            shape = RoundedCornerShape(
+                                topStart = 16.dp,
+                                topEnd = 0.dp,
+                                bottomEnd = 16.dp,
+                                bottomStart = 16.dp
+                            )
                         )
                         .width(320.dp)
                 ){
@@ -122,20 +144,31 @@ fun LoginScreen(
             }
 
             Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.Center
+                modifier = Modifier.fillMaxWidth()
+                    .padding(top = 28.dp),
+                contentAlignment = Alignment.Center,
             ){
                 Column(
                     modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp))
+                        .clip(RoundedCornerShape(
+                            topStart = 16.dp,
+                            topEnd = 0.dp,
+                            bottomEnd = 16.dp,
+                            bottomStart = 16.dp
+                        ))
                         .background(
                             color = Color.White,
-                            shape = RoundedCornerShape(16.dp)
+                            shape = RoundedCornerShape(
+                                topStart = 16.dp,
+                                topEnd = 0.dp,
+                                bottomEnd = 16.dp,
+                                bottomStart = 16.dp
+                            )
                         )
                         .width(320.dp)
                 ){
                     Text(
-                        text = "Email",
+                        text = "Password",
                         modifier = Modifier
                             .padding(start = 15.dp, top = 8.dp)
                     )
@@ -143,21 +176,16 @@ fun LoginScreen(
                     TextField(
                         value = textSearchBar,
                         onValueChange = { textSearchBar = it },
-                        placeholder = {
-                            Text(
-                                text = "vijaybhuva90@gmail.com",
-                                fontSize = 13.sp,
-                                color = Color.Gray
-                            )
-                        },
-                        singleLine = true,
+                        label = {Text("Password")},
+                        visualTransformation = PasswordVisualTransformation(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                         modifier = Modifier
                             .height(52.dp),
 
                         colors = TextFieldDefaults.colors(
                             focusedContainerColor = Color.White,
                             unfocusedContainerColor = Color.White,
-                            focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
+                            focusedIndicatorColor = Color.Transparent,
                             unfocusedIndicatorColor = Color.Transparent,
                             disabledIndicatorColor = Color.Transparent
                         )
@@ -165,6 +193,49 @@ fun LoginScreen(
                 }
             }
 
+            Box(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(top = 8.dp),
+                contentAlignment = Alignment.Center
+            ){
+                Button(
+                    onClick = { },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.Black,
+                        contentColor = Color.White
+                    ),
+                    shape = RoundedCornerShape(
+                        topStart = 16.dp,
+                        topEnd = 0.dp,
+                        bottomEnd = 16.dp,
+                        bottomStart = 16.dp
+                    ),
+                    modifier = Modifier.padding(24.dp)
+                        .width(320.dp)
+                        .height(50.dp)
+
+                ) {
+                    Text("Login")
+                }
+            }
+
+
+
+            Box(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(top = 32.dp),
+                contentAlignment = Alignment.Center
+            ){
+                Row {
+                    Text("Don't have any accounts?")
+                    Text(
+                        text = "Sign up",
+                        modifier = Modifier.clickable {
+                            navController.navigate(SignupScreenRoute)
+                        }
+                    )
+                }
+            }
 
 
 

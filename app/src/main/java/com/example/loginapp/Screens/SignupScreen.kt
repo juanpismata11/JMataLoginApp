@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -21,230 +23,277 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import coil3.compose.AsyncImage
+import com.example.loginapp.ui.theme.LoginAppTheme
 
 @Composable
 fun SignupScreen(){
     var textSearchBar by remember { mutableStateOf("") }
 
+    Column(){
 
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
+        Box(
             modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .width(320.dp)
-        ){
+                .fillMaxWidth()
+                .height(150.dp)
+                .background(Color.Black),
+            contentAlignment = Alignment.Center
+        ) {
             Text(
-                text = "Email",
-                modifier = Modifier
-                    .padding(start = 15.dp, top = 8.dp)
+                text = "Sign Up"
             )
+        }
 
-            TextField(
-                value = textSearchBar,
-                onValueChange = { textSearchBar = it },
-                placeholder = {
-                    Text(
-                        text = "vijaybhuva90@gmail.com",
-                        fontSize = 13.sp,
-                        color = Color.Gray
+
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ){
+            Column(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(16.dp)
                     )
-                },
-                singleLine = true,
-                modifier = Modifier
-                    .height(52.dp),
-
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.White,
-                    unfocusedContainerColor = Color.White,
-                    focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
-                    unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
+                    .width(320.dp)
+            ){
+                Text(
+                    text = "Email",
+                    modifier = Modifier
+                        .padding(start = 15.dp, top = 8.dp)
                 )
-            )
+
+                TextField(
+                    value = textSearchBar,
+                    onValueChange = { textSearchBar = it },
+                    placeholder = {
+                        Text(
+                            text = "vijaybhuva90@gmail.com",
+                            fontSize = 13.sp,
+                            color = Color.Gray
+                        )
+                    },
+                    singleLine = true,
+                    modifier = Modifier
+                        .height(52.dp),
+
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Color.White,
+                        unfocusedContainerColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    )
+                )
+            }
+        }
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ){
+            Column(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(16.dp)
+                    )
+                    .width(320.dp)
+            ){
+                Text(
+                    text = "Email",
+                    modifier = Modifier
+                        .padding(start = 15.dp, top = 8.dp)
+                )
+
+                TextField(
+                    value = textSearchBar,
+                    onValueChange = { textSearchBar = it },
+                    placeholder = {
+                        Text(
+                            text = "vijaybhuva90@gmail.com",
+                            fontSize = 13.sp,
+                            color = Color.Gray
+                        )
+                    },
+                    singleLine = true,
+                    modifier = Modifier
+                        .height(52.dp),
+
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Color.White,
+                        unfocusedContainerColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    )
+                )
+            }
+        }
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ){
+            Column(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(16.dp)
+                    )
+                    .width(320.dp)
+            ){
+                Text(
+                    text = "Email",
+                    modifier = Modifier
+                        .padding(start = 15.dp, top = 8.dp)
+                )
+
+                TextField(
+                    value = textSearchBar,
+                    onValueChange = { textSearchBar = it },
+                    placeholder = {
+                        Text(
+                            text = "vijaybhuva90@gmail.com",
+                            fontSize = 13.sp,
+                            color = Color.Gray
+                        )
+                    },
+                    singleLine = true,
+                    modifier = Modifier
+                        .height(52.dp),
+
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Color.White,
+                        unfocusedContainerColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    )
+                )
+            }
+        }
+
+        Box(
+            modifier = Modifier.fillMaxWidth()
+                .padding(top = 28.dp),
+            contentAlignment = Alignment.Center,
+        ){
+            Column(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(
+                        topStart = 16.dp,
+                        topEnd = 0.dp,
+                        bottomEnd = 16.dp,
+                        bottomStart = 16.dp
+                    ))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(
+                            topStart = 16.dp,
+                            topEnd = 0.dp,
+                            bottomEnd = 16.dp,
+                            bottomStart = 16.dp
+                        )
+                    )
+                    .width(320.dp)
+            ){
+                Text(
+                    text = "Password",
+                    modifier = Modifier
+                        .padding(start = 15.dp, top = 8.dp)
+                )
+
+                TextField(
+                    value = textSearchBar,
+                    onValueChange = { textSearchBar = it },
+                    label = {Text("Password")},
+                    visualTransformation = PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    modifier = Modifier
+                        .height(52.dp),
+
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Color.White,
+                        unfocusedContainerColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    )
+                )
+            }
+        }
+
+        Box(
+            modifier = Modifier.fillMaxWidth()
+                .padding(top = 28.dp),
+            contentAlignment = Alignment.Center,
+        ){
+            Column(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(
+                        topStart = 16.dp,
+                        topEnd = 0.dp,
+                        bottomEnd = 16.dp,
+                        bottomStart = 16.dp
+                    ))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(
+                            topStart = 16.dp,
+                            topEnd = 0.dp,
+                            bottomEnd = 16.dp,
+                            bottomStart = 16.dp
+                        )
+                    )
+                    .width(320.dp)
+            ){
+                Text(
+                    text = "Password",
+                    modifier = Modifier
+                        .padding(start = 15.dp, top = 8.dp)
+                )
+
+                TextField(
+                    value = textSearchBar,
+                    onValueChange = { textSearchBar = it },
+                    label = {Text("Password")},
+                    visualTransformation = PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    modifier = Modifier
+                        .height(52.dp),
+
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = Color.White,
+                        unfocusedContainerColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                    )
+                )
+            }
         }
     }
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
-            modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .width(320.dp)
-        ){
-            Text(
-                text = "Email",
-                modifier = Modifier
-                    .padding(start = 15.dp, top = 8.dp)
-            )
 
-            TextField(
-                value = textSearchBar,
-                onValueChange = { textSearchBar = it },
-                placeholder = {
-                    Text(
-                        text = "vijaybhuva90@gmail.com",
-                        fontSize = 13.sp,
-                        color = Color.Gray
-                    )
-                },
-                singleLine = true,
-                modifier = Modifier
-                    .height(52.dp),
 
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.White,
-                    unfocusedContainerColor = Color.White,
-                    focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
-                    unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
-                )
-            )
-        }
-    }
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
-            modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .width(320.dp)
-        ){
-            Text(
-                text = "Email",
-                modifier = Modifier
-                    .padding(start = 15.dp, top = 8.dp)
-            )
+}
 
-            TextField(
-                value = textSearchBar,
-                onValueChange = { textSearchBar = it },
-                placeholder = {
-                    Text(
-                        text = "vijaybhuva90@gmail.com",
-                        fontSize = 13.sp,
-                        color = Color.Gray
-                    )
-                },
-                singleLine = true,
-                modifier = Modifier
-                    .height(52.dp),
-
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.White,
-                    unfocusedContainerColor = Color.White,
-                    focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
-                    unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
-                )
-            )
-        }
-    }
-
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
-            modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .width(320.dp)
-        ){
-            Text(
-                text = "Email",
-                modifier = Modifier
-                    .padding(start = 15.dp, top = 8.dp)
-            )
-
-            TextField(
-                value = textSearchBar,
-                onValueChange = { textSearchBar = it },
-                placeholder = {
-                    Text(
-                        text = "vijaybhuva90@gmail.com",
-                        fontSize = 13.sp,
-                        color = Color.Gray
-                    )
-                },
-                singleLine = true,
-                modifier = Modifier
-                    .height(52.dp),
-
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.White,
-                    unfocusedContainerColor = Color.White,
-                    focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
-                    unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
-                )
-            )
-        }
-    }
-
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ){
-        Column(
-            modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .width(320.dp)
-        ){
-            Text(
-                text = "Email",
-                modifier = Modifier
-                    .padding(start = 15.dp, top = 8.dp)
-            )
-
-            TextField(
-                value = textSearchBar,
-                onValueChange = { textSearchBar = it },
-                placeholder = {
-                    Text(
-                        text = "vijaybhuva90@gmail.com",
-                        fontSize = 13.sp,
-                        color = Color.Gray
-                    )
-                },
-                singleLine = true,
-                modifier = Modifier
-                    .height(52.dp),
-
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.White,
-                    unfocusedContainerColor = Color.White,
-                    focusedIndicatorColor = Color.Transparent, // quita la línea de abajo
-                    unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
-                )
-            )
-        }
+@Preview(showBackground = true)
+@Composable
+fun Greeting() {
+    LoginAppTheme {
+        LoginScreen(
+            navController = rememberNavController(),
+            innerPadding = PaddingValues(0.dp)
+        )
     }
 }
